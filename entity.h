@@ -5,11 +5,10 @@
 #include <memory>
 
 #include "utils.h"
-#include "interaction.h"
 
 namespace evol {
 
-class Interaction;
+class Food;
 
 class Entity {
 public:
@@ -22,8 +21,8 @@ public:
     [[nodiscard]] bool removed() const;
     [[nodiscard]] Rectangle rectangle() const;
     void remove();
-    virtual void interact(Interaction& e_) = 0;
-    virtual std::unique_ptr<Interaction> getInteraction() = 0;
+    virtual void requestInteract(Entity& /*e_*/) { };
+    virtual void interact(Food& /*e_*/) { };
     virtual void process() = 0;
     void setBounds(const Rectangle& bounds_);
 protected:

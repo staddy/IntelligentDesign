@@ -28,7 +28,7 @@ void World::process() {
         }
         auto collisions = m_entities->entities(*entity);
         for (auto& collision : collisions) {
-            entity->interact(*collision->getInteraction());
+            collision->requestInteract(*entity);
         }
     }
     for (auto& entity : entities) {

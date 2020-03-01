@@ -36,7 +36,6 @@ HEADERS += \
     entity.h \
     entitycontainer.h \
     food.h \
-    interaction.h \
     quadtree.h \
     utils.h \
     world.h

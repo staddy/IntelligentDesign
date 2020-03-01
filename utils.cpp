@@ -39,8 +39,8 @@ bool Rectangle::contains(const Rectangle& rectangle_) const {
 }
 
 bool Rectangle::intersects(const Rectangle& rectangle_) const {
-    return !(((rectangle_.bottomRight.x <= topLeft.x) || (rectangle_.topLeft.x >= bottomRight.x)) ||
-            ((rectangle_.bottomRight.y <= topLeft.y) && (rectangle_.topLeft.y >= bottomRight.y)));
+    return !((rectangle_.bottomRight.x <= topLeft.x) || (rectangle_.topLeft.x >= bottomRight.x) ||
+            (rectangle_.bottomRight.y <= topLeft.y) || (rectangle_.topLeft.y >= bottomRight.y));
 }
 
 const Rectangle Rectangle::INF{{-std::numeric_limits<double>::infinity(), -std::numeric_limits<double>::infinity()},
