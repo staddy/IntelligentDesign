@@ -18,11 +18,11 @@ Vector Vector::operator-(const Vector& v_) const {
 }
 
 bool Vector::operator>=(const Vector& v_) const {
-    return std::tie(x, y) >= std::tie(v_.x, v_.y);
+    return (x >= v_.x) && (y >= v_.y);
 }
 
 bool Vector::operator<(const Vector& v_) const {
-    return std::tie(x, y) < std::tie(v_.x, v_.y);
+    return (x < v_.x) && (y < v_.y);
 }
 
 double Rectangle::width() const {

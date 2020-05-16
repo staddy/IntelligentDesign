@@ -5,7 +5,7 @@
 namespace evol {
 
 bool ChunkMap::Chunk::operator==(const ChunkMap::Chunk& ck_) const {
-    return std::tie(x, y) == std::tie(ck_.x, ck_.y);
+    return (x == ck_.x) && (y == ck_.y);
 }
 
 size_t ChunkMap::ChunkHasher::operator()(const ChunkMap::Chunk& ck_) const {
