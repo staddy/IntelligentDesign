@@ -21,6 +21,7 @@ public:
     const Vector& position() const;
     double radius() const;
     double angle() const;
+    Rectangle bounds() const;
     Rectangle rectangle() const;
 
     bool intersectsWith(const Entity& e_) const;

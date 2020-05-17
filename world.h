@@ -19,6 +19,7 @@ public:
           MappingMode mappingMode_ = MappingMode::CHUNK_MAP);
     void process();
     void addEntity(std::shared_ptr<Entity>&& entity_);
+    Rectangle bounds() const;
 private:
     Rectangle m_bounds;
     MappingMode m_mappingMode;

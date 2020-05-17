@@ -45,6 +45,10 @@ void Entity::setBounds(const Rectangle& bounds_) {
     m_bounds = bounds_;
 }
 
+Rectangle Entity::bounds() const {
+    return m_bounds;
+}
+
 void Entity::setBoundaryFlag(evol::Vector curr_pos) {
     evol::Vector tl_b = m_bounds.topLeft;
     evol::Vector br_b = m_bounds.bottomRight;

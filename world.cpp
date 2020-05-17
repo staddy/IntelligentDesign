@@ -50,4 +50,8 @@ void World::addEntity(std::shared_ptr<Entity>&& entity_) {
     m_entities->emplace(std::move(entity_));
 }
 
+Rectangle World::bounds() const {
+    return m_bounds;
+}
+
 }
