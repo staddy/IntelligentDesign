@@ -22,6 +22,7 @@ SOURCES += \
         entitycontainer.cpp \
         food.cpp \
         main.cpp \
+        optimizer.cpp \
         quadtree.cpp \
         utils.cpp \
         world.cpp
@@ -37,6 +38,7 @@ HEADERS += \
     entity.h \
     entitycontainer.h \
     food.h \
+    optimizer.h \
     quadtree.h \
     utils.h \
     world.h

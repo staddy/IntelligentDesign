@@ -16,7 +16,7 @@ public:
     Entity(const Vector& position_, double radius_, double angle_);
     virtual ~Entity() = default;
 
-    double movement_const{0.01}; /** Постоянная для расчёта продвижения за один шаг */
+    double movement_const{0.1}; /** Постоянная для расчёта продвижения за один шаг */
     size_t id() const;
     const Vector& position() const;
     double radius() const;
@@ -33,6 +33,7 @@ public:
     virtual void requestInteract(Entity& /*e_*/) { }
     virtual void interact(Food& /*e_*/) { }
     virtual void process() = 0;
+    virtual void step() = 0;
 
     void setBounds(const Rectangle& bounds_);
     void setBoundaryFlag(evol::Vector curr_pos);
@@ -41,11 +42,11 @@ public:
 
 protected:
     Vector m_position{};
-    double m_radius{0.0};
+    double m_radius{1.0};
     Rectangle m_bounds{Rectangle::INF};
     int boundary_flag{0};
 private:
-    double m_angle;
+    double m_angle{0.0};
     size_t m_id{0};
     bool m_removed{false};
 };

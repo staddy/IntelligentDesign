@@ -7,8 +7,10 @@
 
 int main(int /*argc*/, char */*argv*/[]) {
     using namespace evol;
-    World world({{-100, -100}, {100, 100}}, World::MappingMode::KD_TREE);
+//    World world({{-100, -100}, {100, 100}}, World::MappingMode::KD_TREE);
 
+    World world;
+    world.modelling(4.0, 2.0);
 /*    std::cout << "world created\n";
     Creature b1({10.0, 10.0}, 2.0, 0.0, 2.0);
     Creature b2({-10.0, 10.0}, 2.0, M_PI/2, 2.0);
@@ -28,8 +30,8 @@ int main(int /*argc*/, char */*argv*/[]) {
     std::cout << "act2 with movement value " << b2.movement_value() << " succeeded\n";
     std::cout << "creature 1: (" << b2.position().x << ", " << b2.position().y << ");\n";
 */
-
-/*    for (double x = -80.0; x < 81.0; x += 10.0) {
+/*
+    for (double x = -80.0; x < 81.0; x += 10.0) {
         for (double y = -80.0; y < 81.0; y += 10.0) {
             world.addEntity(std::make_shared<Food>(Vector{x, y}, 5.0, 3.0));
             world.addEntity(std::make_shared<Creature>(Vector{x, y}, 1.0, 0.0, 1.0));

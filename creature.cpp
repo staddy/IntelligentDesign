@@ -11,12 +11,22 @@ Creature::Creature(const Vector& position_, double radius_, double angle_, doubl
     m_movement_value = movement_const * velocity_ / (radius_ * radius_);
 }
 
+double Creature::m_nutritionsCollected = 0;
+int Creature::chunks_eaten = 0;
+
 void Creature::interact(Food& e_) {
-    //m_collected += e_.value();
-    static size_t c = 0;
-    std::cout << "creature " << ++c << "\n";
+    m_nutritionsCollected += e_.m_nutrition;
+    ++chunks_eaten;
+    std::cout << "creature  (" << position().x << ", " << position().y << ") ate food ("
+              << e_.position().x << ", " << e_.position().y <<")\n";
     e_.remove();
 }
+
+void Creature::step() {
+    active_motion();
+    brownian_motion();
+}
+
 double Creature::movement_value() const {
     return m_movement_value;
 }

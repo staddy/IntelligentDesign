@@ -11,9 +11,10 @@ public:
     void requestInteract(Entity& e_) override;
     void process() override;
     double m_nutrition{};
+    void step() override;
 
 private:
-    double nutr_const{5.0}; /** Константа, участвующая в формуле расчета питательной ценности частицы */
+    double nutr_const{1.0}; /** Константа, участвующая в формуле расчета питательной ценности частицы */
 };
 
 }
