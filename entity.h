@@ -33,7 +33,6 @@ public:
     virtual void requestInteract(Entity& /*e_*/) { }
     virtual void interact(Food& /*e_*/) { }
     virtual void process() = 0;
-    virtual void step() = 0;
 
     void setBounds(const Rectangle& bounds_);
     void setBoundaryFlag(evol::Vector curr_pos);

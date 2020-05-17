@@ -52,15 +52,12 @@ void World::generate_ent(int n, double radius_, double velocity_) {
 void World::modelling(double velocity_, double radius_) {
     generate_food(f_chunks);
     generate_ent(colony_size, radius_, velocity_);
+    std::cout << "\n";
     for (int i = 0; i < steps; ++i) {
         process();
         generate_food(Creature::chunks_eaten);
-        std::cout << "Step " << i+1 << ", nutritions collected:" << Creature::m_nutritionsCollected << "\n\n";
+        std::cout << "Step " << i+1 << ", nutritions collected: " << Creature::m_nutritionsCollected << "\n\n";
         Creature::chunks_eaten = 0;
-        for (auto& entity : m_entities->entities()) {
-            entity->step();
-        }
-
     }
     std::cout << "End of life\n";
 }

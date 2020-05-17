@@ -16,7 +16,6 @@ public:
     Creature(const Vector& position_, double radius_, double angle_, double velocity_);
     void interact(Food& e_) override;
     void process() override;
-    void step() override;
     double movement_value() const;
     void active_motion(); /** Осуществляет активное движение в заданном направлении */
     double first_bound_cross(); /** Определяет, какая граница была преодолена первой */

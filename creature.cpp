@@ -17,14 +17,9 @@ int Creature::chunks_eaten = 0;
 void Creature::interact(Food& e_) {
     m_nutritionsCollected += e_.m_nutrition;
     ++chunks_eaten;
-    std::cout << "creature  (" << position().x << ", " << position().y << ") ate food ("
+    std::cout << "Creature (" << position().x << ", " << position().y << ") ate food ("
               << e_.position().x << ", " << e_.position().y <<")\n";
     e_.remove();
-}
-
-void Creature::step() {
-    active_motion();
-    brownian_motion();
 }
 
 double Creature::movement_value() const {

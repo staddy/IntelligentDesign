@@ -12,10 +12,6 @@ void Food::requestInteract(Entity& e_) {
 }
 
 void Food::process() {
-
-}
-
-void Food::step() {
     brownian_motion();
 }
 
