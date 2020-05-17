@@ -2,7 +2,7 @@
 
 #include <functional>
 #include <cmath>
-
+#include <iostream>
 #include "quadtree.h"
 #include "chunkmap.h"
 
@@ -21,19 +21,27 @@ World::World(const Rectangle& bounds_, MappingMode mappingMode_) :
 }
 
 void World::process() {
+    std::cout << "Start\n";
     auto entities = m_entities->entities();
+    std::cout << "Entities entities entities\n";
+    int c=0;
     for (auto& entity : entities) {
+        std::cout << "for " << ++c << "\n";
         if (entity->removed()) {
             continue;
         }
+        std::cout << "Collisions\n";
         auto collisions = m_entities->entities(*entity);
         for (auto& collision : collisions) {
+            std::cout << "request\n\n";
             collision->requestInteract(*entity);
         }
     }
     for (auto& entity : entities) {
+        std::cout << "Step\n";
         entity->process();
     }
+    std::cout << "upd\n";
     m_entities->update();
 }
 

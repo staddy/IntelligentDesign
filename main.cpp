@@ -7,13 +7,11 @@
 
 int main(int /*argc*/, char */*argv*/[]) {
     using namespace evol;
-    World world({{-1000, -1000}, {1000, 1000}}, World::MappingMode::CHUNK_MAP);
-    world.addEntity(std::make_shared<Creature>(Vector{10.0, 10.0}, 10.0));
-    world.addEntity(std::make_shared<Food>(Vector{10.0, 10.0}, 10.0));
-    for (double x = -800.0; x < 800.0; x += 5.0) {
-        for (double y = -800.0; y < 800.0; y += 75) {
-            world.addEntity(std::make_shared<Food>(Vector{x, y}, 5.0));
-            world.addEntity(std::make_shared<Creature>(Vector{x, y}, 1.0));
+    World world({{-100, -100}, {100, 100}}, World::MappingMode::CHUNK_MAP);
+    for (double x = -80.0; x < 81.0; x += 10.0) {
+        for (double y = -80.0; y < 81.0; y += 10.0) {
+            world.addEntity(std::make_shared<Food>(Vector{x, y}, 5.0, 3.0));
+            world.addEntity(std::make_shared<Creature>(Vector{x, y}, 1.0, 0.0, 1.0));
         }
         std::cout << "INIT " << x << std::endl;
     }

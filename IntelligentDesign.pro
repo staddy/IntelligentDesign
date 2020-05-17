@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         chunkmap.cpp \
         creature.cpp \
+        creature_test.cpp \
         entity.cpp \
         entitycontainer.cpp \
         food.cpp \
