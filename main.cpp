@@ -8,7 +8,8 @@
 int main(int /*argc*/, char */*argv*/[]) {
     using namespace evol;
     World world({{-100, -100}, {100, 100}}, World::MappingMode::KD_TREE);
-    std::cout << "world created\n";
+
+/*    std::cout << "world created\n";
     Creature b1({10.0, 10.0}, 2.0, 0.0, 2.0);
     Creature b2({-10.0, 10.0}, 2.0, M_PI/2, 2.0);
     std::cout << "creatures created\n";
@@ -18,9 +19,15 @@ int main(int /*argc*/, char */*argv*/[]) {
     std::cout << "creature 2: (" << b2.position().x << ", " << b2.position().y << ");\n";
     std::cout << "bounds: (" << b1.bounds().topLeft.x << "; " << b1.bounds().topLeft.y << "), ("
               << b1.bounds().bottomRight.x << "; " << b1.bounds().bottomRight.y << ")\n";
+
     b1.active_motion();
-    std::cout << "act1\n";
+    std::cout << "act1 with movement value " << b1.movement_value() << " succeeded\n";
+    std::cout << "creature 1: (" << b1.position().x << ", " << b1.position().y << ");\n";
+
     b2.active_motion();
+    std::cout << "act2 with movement value " << b2.movement_value() << " succeeded\n";
+    std::cout << "creature 1: (" << b2.position().x << ", " << b2.position().y << ");\n";
+*/
 
 /*    for (double x = -80.0; x < 81.0; x += 10.0) {
         for (double y = -80.0; y < 81.0; y += 10.0) {

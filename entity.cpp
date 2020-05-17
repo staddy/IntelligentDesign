@@ -52,7 +52,7 @@ Rectangle Entity::bounds() const {
 void Entity::setBoundaryFlag(evol::Vector curr_pos) {
     evol::Vector tl_b = m_bounds.topLeft;
     evol::Vector br_b = m_bounds.bottomRight;
-    if ((curr_pos.y > tl_b.y) || (curr_pos.y < br_b.y))
+    if ((curr_pos.y < tl_b.y) || (curr_pos.y > br_b.y))
         boundary_flag = 1;
     else if ((curr_pos.x < tl_b.x) || (curr_pos.x > br_b.x))
         boundary_flag = -1;
@@ -80,9 +80,9 @@ void Entity::brownian_motion() {
             m_position.x = m_bounds.topLeft.x;
         else if (m_position.x > m_bounds.bottomRight.x)
             m_position.x = m_bounds.bottomRight.x;
-        if (m_position.y > m_bounds.topLeft.y)
+        if (m_position.y < m_bounds.topLeft.y)
             m_position.y = m_bounds.topLeft.y;
-        else if (m_position.y < m_bounds.bottomRight.y)
+        else if (m_position.y > m_bounds.bottomRight.y)
             m_position.y = m_bounds.bottomRight.y;
     }
 }
