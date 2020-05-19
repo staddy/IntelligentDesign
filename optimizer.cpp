@@ -1,6 +1,8 @@
 #include "optimizer.h"
 #include <iostream>
 
+std::vector<evol::Creature::Params> Optimizer::population;
+
 Optimizer::Optimizer(const evol::Rectangle& bounds_, MappingMode mappingMode_) :
     evol::World(bounds_, mappingMode_) {
 }
