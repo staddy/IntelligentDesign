@@ -10,7 +10,7 @@ int main(int /*argc*/, char */*argv*/[]) {
 
     Optimizer world;
     world.generateFirstPopulation();
-//    world.modelling();
+    world.modelling();
 
 /*    std::cout << "world created\n";
     Creature b1({10.0, 10.0}, 2.0, 0.0, 2.0);

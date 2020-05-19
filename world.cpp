@@ -3,10 +3,6 @@
 #include <functional>
 #include <cmath>
 #include <iostream>
-#include "quadtree.h"
-#include "chunkmap.h"
-#include "creature.h"
-#include "food.h"
 
 namespace evol {
 
@@ -20,46 +16,6 @@ World::World(const Rectangle& bounds_, MappingMode mappingMode_) :
         m_entities = std::make_unique<ChunkMap>();
         break;
     }
-}
-
-void World::generate_food(int n) {
-    int i = 0;
-    double x, y;
-    while (i < n) {
-        y = rand() * m_bounds.height() / RAND_MAX;
-        if ((rand() / RAND_MAX) < (y / m_bounds.height())) {
-            y += m_bounds.topLeft.y;
-            x = m_bounds.width() * rand() / RAND_MAX + m_bounds.topLeft.x;
-            double angle = 2 * M_PI * rand() / RAND_MAX;
-            double f_size = 1.0 + 4.0 * rand() / RAND_MAX;
-            addEntity(std::make_shared<Food>(Vector{x, y}, f_size, angle));
-            ++i;
-            std::cout << "Food " << i << ": (" << x << ", " << y << ")\n";
-        }
-    }
-}
-
-void World::generate_ent(int n, double radius_, double velocity_) {
-    for (int i = 0; i < n; ++i) {
-        double x = m_bounds.width() * rand() / RAND_MAX + m_bounds.topLeft.x;
-        double y = m_bounds.height() * rand() / RAND_MAX + m_bounds.topLeft.y;
-        double angle = 2 * M_PI * rand() / RAND_MAX;
-        addEntity(std::make_shared<Creature>(Vector{x, y}, radius_, angle, velocity_));
-        std::cout << "Bacteria " << i+1 << ": (" << x << ", " << y << ")\n";
-    }
-}
-
-void World::modelling(double velocity_, double radius_) {
-    generate_food(f_chunks);
-    generate_ent(colony_size, radius_, velocity_);
-    std::cout << "\n";
-    for (int i = 0; i < steps; ++i) {
-        process();
-        generate_food(Creature::chunks_eaten);
-        std::cout << "Step " << i+1 << ", nutritions collected: " << Creature::m_nutritionsCollected << "\n\n";
-        Creature::chunks_eaten = 0;
-    }
-    std::cout << "End of life\n";
 }
 
 void World::process() {

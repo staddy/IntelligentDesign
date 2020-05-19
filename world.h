@@ -5,7 +5,10 @@
 #include <vector>
 #include <memory>
 
-#include "entitycontainer.h"
+#include "creature.h"
+#include "food.h"
+#include "quadtree.h"
+#include "chunkmap.h"
 
 namespace evol {
 
@@ -17,19 +20,19 @@ public:
     };
     World(const Rectangle& bounds_ = {{-100.0, -100.0}, {100.0, 100.0}},
           MappingMode mappingMode_ = MappingMode::KD_TREE);
+
     void process();
     void addEntity(std::shared_ptr<Entity>&& entity_);
     Rectangle bounds() const;
-    void modelling(double velocity_, double radius_);
-    void generate_food(int n);
-    void generate_ent(int n, double radius_, double velocity_);
-private:
+
+    const int colony_size{40};
     Rectangle m_bounds;
+    const int steps{20};
+    const int f_chunks{100};
+
+private:
     MappingMode m_mappingMode;
     std::unique_ptr<EntityContainer> m_entities;
-    const int steps{20};
-    int f_chunks{100};
-    int colony_size{30};
 };
 
 }

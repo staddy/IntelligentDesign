@@ -17,10 +17,14 @@ int Creature::chunks_eaten = 0;
 void Creature::interact(Food& e_) {
     m_nutritionsCollected += e_.m_nutrition;
     ++chunks_eaten;
-    std::cout << "Creature (" << position().x << ", " << position().y << ") ate food ("
-              << e_.position().x << ", " << e_.position().y <<")\n";
+    std::cout << "Creature (" << position().x << ", " << position().y << ") with radius " << radius()
+              << " ate food (" << e_.position().x << ", " << e_.position().y <<")\n";
     e_.remove();
 }
+
+//void Creature::find_matching() {
+//
+//}
 
 double Creature::movement_value() const {
     return m_movement_value;

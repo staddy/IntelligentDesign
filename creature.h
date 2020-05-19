@@ -2,6 +2,7 @@
 #define CREATURE_H
 
 #include "entity.h"
+#include <vector>
 
 namespace evol {
 
@@ -11,6 +12,15 @@ private:
     double m_movement_value; /** Длина шага */
 
 public:
+    struct Params {
+        double radius;
+        double velocity;
+        double nutr;
+    };
+
+//    static std::vector<Params> population;
+//    void  find_matching();
+
     static double m_nutritionsCollected;
     static int chunks_eaten;
     Creature(const Vector& position_, double radius_, double angle_, double velocity_);
