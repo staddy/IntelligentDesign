@@ -14,6 +14,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+LIBS += -L/usr/lib/x86_64-linux-gnu/libpython3.6m.a -lboost_python3 # -lboost_numpy3
+INCLUDEPATH += /usr/include/python3.6m
+TARGET = intelligentdesign.so
+LIBS += -shared
+
 SOURCES += \
         chunkmap.cpp \
         creature.cpp \
@@ -21,16 +26,11 @@ SOURCES += \
         entity.cpp \
         entitycontainer.cpp \
         food.cpp \
-        main.cpp \
         optimizer.cpp \
+        pythonwrapper.cpp \
         quadtree.cpp \
         utils.cpp \
         world.cpp
-
-# Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
     chunkmap.h \
