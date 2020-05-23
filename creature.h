@@ -19,14 +19,15 @@ public:
     };
 
 //    static std::vector<Params> population;
-//    void  find_matching();
-
+\
     static double m_nutritionsCollected;
     static int chunks_eaten;
     Creature(const Vector& position_, double radius_, double angle_, double velocity_);
     void interact(Food& e_) override;
     void process() override;
+    double velocity();
     double movement_value() const;
+    void find_yourself(double nutr_); //needed to change nutr of same parameters as this creature has
     void active_motion(); /** Осуществляет активное движение в заданном направлении */
     double first_bound_cross(); /** Определяет, какая граница была преодолена первой */
 

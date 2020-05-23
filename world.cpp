@@ -19,7 +19,7 @@ World::World(const Rectangle& bounds_, MappingMode mappingMode_) :
 }
 
 void World::process() {
-    std::cout << "Start\n";
+    //std::cout << "Start\n";
     auto entities = m_entities->entities();
     for (auto& entity : entities) {
         if (entity->removed()) {

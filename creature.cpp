@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "food.h"
+#include "optimizer.h"
 
 namespace evol {
 
@@ -16,15 +17,24 @@ int Creature::chunks_eaten = 0;
 
 void Creature::interact(Food& e_) {
     m_nutritionsCollected += e_.m_nutrition;
+    find_yourself(e_.m_nutrition);
     ++chunks_eaten;
-    std::cout << "Creature (" << position().x << ", " << position().y << ") with radius " << radius()
-              << " ate food (" << e_.position().x << ", " << e_.position().y <<")\n";
+    //std::cout << "Creature (" << position().x << ", " << position().y << ") with radius " << radius() << " ate food (" << e_.position().x << ", " << e_.position().y <<")\n";
     e_.remove();
 }
 
-//void Creature::find_matching() {
-//
-//}
+void Creature::find_yourself(double nutr_) {
+    for(auto& ent : Optimizer::population) {
+        if (((ent.radius - radius()) < 0.001) && ((ent.velocity - velocity()) < 0.001)) {
+            ent.nutr += nutr_;
+            break;
+        }
+    }
+}
+
+double Creature::velocity() {
+    return m_velocity;
+}
 
 double Creature::movement_value() const {
     return m_movement_value;
